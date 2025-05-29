@@ -6,6 +6,12 @@ program dnnOpenPose;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmDnnOpenPose in 'frmDnnOpenPose.pas' {Form7};

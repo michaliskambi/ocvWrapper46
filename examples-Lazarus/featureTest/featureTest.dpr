@@ -5,6 +5,12 @@ program featureTest;
 {$ENDIF}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmFeatureTest in 'frmFeatureTest.pas' {Form6};

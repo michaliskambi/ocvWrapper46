@@ -3,6 +3,12 @@ program testSVM;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmTestSVM in 'frmTestSVM.pas' {Form7};

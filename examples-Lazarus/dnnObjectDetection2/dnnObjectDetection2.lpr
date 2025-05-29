@@ -3,6 +3,12 @@ program dnnObjectDetection2;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Forms, Interfaces,
   frmDnnObjectDetection2 in 'frmDnnObjectDetection2.pas' {Form7};
 

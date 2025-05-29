@@ -27,7 +27,7 @@ unit frmFeatureTest;
 interface
 
 uses
-  Forms, Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Dialogs,
+  Forms, SysUtils, Variants, Classes, Graphics, Controls, Dialogs,
   OPENCVWrapper,
   StdCtrls;
 

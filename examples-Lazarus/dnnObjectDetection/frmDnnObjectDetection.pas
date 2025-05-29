@@ -32,7 +32,7 @@ unit frmDnnObjectDetection;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs,
   Generics.Collections,
   OPENCVWrapper,

@@ -3,6 +3,12 @@ program skeletonize;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmSkeletonize in 'frmSkeletonize.pas' {Form6};

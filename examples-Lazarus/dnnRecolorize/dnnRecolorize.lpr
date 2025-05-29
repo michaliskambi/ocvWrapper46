@@ -6,6 +6,12 @@ program dnnRecolorize;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmDnnRecolorize in 'frmDnnRecolorize.pas' {Form7};

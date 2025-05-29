@@ -3,6 +3,12 @@ program testPCA;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmTestPCA in 'frmTestPCA.pas' {Form7};
