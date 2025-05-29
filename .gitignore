@@ -10,3 +10,7 @@ backup/
 lib/
 # Lazarus session file, user-specific, should not be in version control
 *.lps
+
+# Produced when compiling the wrapper
+source/libocvCPPWrapper46.so
+source/Makefile
