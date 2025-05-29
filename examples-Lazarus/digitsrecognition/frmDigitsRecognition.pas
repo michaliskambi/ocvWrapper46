@@ -35,7 +35,7 @@ uses
   Controls, Forms,
   StdCtrls, ComCtrls, ExtCtrls,
   Math,  Dialogs,
-  OpencvWrapper,
+  OPENCVWrapper,
   unOCVImage,
   unOCVVectors,
   unOCVMLClassifier;
@@ -43,7 +43,7 @@ uses
 const
   SZ        = 20;  // size of each digit is SZ x SZ
   CLASS_N   = 10;
-  DIGITS_FN = '..\..\digits.png';
+  DIGITS_FN = '../../digits.png'; { Load from current dir, not ../../, because Lazarus-produced binary is in current dir }
 
 
 type
