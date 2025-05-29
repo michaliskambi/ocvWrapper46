@@ -66,9 +66,9 @@ implementation
 
 {$R *.lfm}
 const
-  MODEL_BIN_NAME = '..\..\yolov3.weights';
-  MODEL_CONFIG_NAME = '..\..\yolov3.cfg';
-  MODEL_CLASSES_NAME = '..\..\object_detection_classes_yolov3.txt';
+  MODEL_BIN_NAME = '../../yolov3.weights';
+  MODEL_CONFIG_NAME = '../../yolov3.cfg';
+  MODEL_CLASSES_NAME = '../../object_detection_classes_yolov3.txt';
 
 type
   TDetection = class
