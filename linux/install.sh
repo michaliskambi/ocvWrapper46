@@ -1,11 +1,22 @@
 #!/bin/bash
-# In your home, download ocvWrapper46 repository 
-# Now, you should have folder ocvWrapper46 inside home 
+set -euo pipefail
+IFS=$'\n\t'
+
+# --------------------------------------------------------------------
+# Build and install /usr/lib/libocvCPPWrapper46.so .
+#
+# Using "Bash Strict Mode"
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+# ( first of all, it means the script will exit on error. )
+# --------------------------------------------------------------------
+
+# In your home, download ocvWrapper46 repository
+# Now, you should have folder ocvWrapper46 inside home
 echo "Installing ocvWrapper46"
 # Define home directory
-HOME=/home/gds
+HOME=/home/michalis/sources/opencv
 # and Opencv sources directory
-OCV=$HOME/Scaricati/opencv-4.6.0
+OCV=$HOME/opencv-4.6.0
 # and ocvWrapper46 repository root folder
 WRAP=$HOME/ocvWrapper46
 
@@ -17,7 +28,7 @@ echo "ocvWrapper46  " $WRAP
 
 # Now there is a opencv-4.6.0 directory with Opencv sources
 # Create build directory in the opencv directory
-cd $OCV 
+cd $OCV
 mkdir -p build && cd build
 # copy build_min.sh in build folder and change mode
 cp $WRAP/linux/build_min.sh  build_min.sh
@@ -45,16 +56,16 @@ cp $OCV/modules/ml/src/precomp.hpp   precomp.hpp
 #
 sed -i 's_#include "opencv2/core/private.hpp"_//#include "opencv2/core/private.hpp"_g' precomp.hpp
 
- 
+
 #copy some header files in the installed opencv include
 sudo cp $OCV/modules/ml/src/kdtree.hpp    /usr/local/include/opencv4/opencv2
 sudo cp precomp.hpp /usr/local/include/opencv4/opencv2
 #======================================
-# Copy linux/Makefile in source folder 
+# Copy linux/Makefile in source folder
 cp $WRAP/linux/Makefile   $WRAP/source/Makefile
 
 
-# cd in the source folder 
+# cd in the source folder
 cd $WRAP/source
 # modify the HOME variable in the linux/Makefile with your HOME
 SEDCMD1='s|_HOMEDIRECTORY_|'$HOME'|g'
@@ -66,7 +77,7 @@ make
 echo "Done"
 
 # if it is OK, copy the so file in the /usr/lib to have
-# global access:  
+# global access:
 sudo cp libocvCPPWrapper46.so  /usr/lib
 sudo ldconfig
 
