@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants,
+  SysUtils, Variants,
   Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, Buttons, StdCtrls,
   ocvWrapComp;
