@@ -24,7 +24,7 @@ unit frmCascadeTest;
 interface
 
 uses StdCtrls,
-  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs,
   OPENCVWrapper;
 

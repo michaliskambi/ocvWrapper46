@@ -16,6 +16,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="..\..\Delphi;..\..\Delphi\Pascal-classes"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>

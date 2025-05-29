@@ -70,6 +70,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
             <OtherUnitFiles Value="..\..\Delphi"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
@@ -87,8 +88,6 @@
               <StackChecks Value="True"/>
             </Checks>
             <VerifyObjMethodCallValidity Value="True"/>
-            <TargetCPU Value="i386"/>
-            <TargetOS Value="win32"/>
           </CodeGeneration>
           <Linking>
             <Debugging>

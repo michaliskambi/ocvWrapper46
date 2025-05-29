@@ -3,6 +3,12 @@ program cascadeTest;
 {$MODE Delphi}
 
 uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces,
   Forms,
   frmCascadeTest in 'frmCascadeTest.pas' {Form6};
