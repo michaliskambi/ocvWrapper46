@@ -63,7 +63,7 @@ type
 
 
 
-    {$INCLUDE OcvPtrTypes.inc}
+    {$INCLUDE OCVPtrTypes.inc}
 
 
 implementation

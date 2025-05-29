@@ -90,7 +90,7 @@ type
 
 
 
-    {$INCLUDE OcvVecTypes.inc}
+    {$INCLUDE OCVVecTypes.inc}
 
 
 implementation
