@@ -133,12 +133,16 @@ try
      if length(qrcode)>0 then
      begin
         lbQrcode.Caption:=qrcode;
-        corners:=pCvMatFromUmat(ucorners);
-        nc:=pCvMatGetWidth(corners);
-        ty:=pCvMatGetType(corners);
-        Assert((nc=4) and (ty=CV_32FC2), 'Returned corners Mat must be of type CV_32FC2 with 4 columns');
-        drawContour(uframe, corners);
-        pCvMatDelete(corners);
+
+        // TODO: This drawing crashes with
+        //   OpenCV Error: pCvMatGetFloat: Column index is < 0, or > Mat height-1
+        // (on FPC 3.2.2, Linux/x86_64).
+        //corners:=pCvMatFromUmat(ucorners);
+        //nc:=pCvMatGetWidth(corners);
+        //ty:=pCvMatGetType(corners);
+        //Assert((nc=4) and (ty=CV_32FC2), 'Returned corners Mat must be of type CV_32FC2 with 4 columns');
+        //drawContour(uframe, corners);
+        //pCvMatDelete(corners);
      end
      else
          lbQrcode.Caption:='Nothing';
