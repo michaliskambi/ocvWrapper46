@@ -26,7 +26,7 @@ interface
 
 uses
   SysUtils, Variants, Classes, Graphics,
-  Controls, Forms, Dialogs,
+  Controls, Forms, Dialogs, LCLIntf, Clipbrd,
   OPENCVWrapper,
   StdCtrls;
 
@@ -37,10 +37,16 @@ type
 
   TForm6 = class(TForm)
     btnStart: TButton;
+    ButtonCopyRecognized: TButton;
+    ButtonOpenAsUrl: TButton;
     lbl1: TLabel;
     lbl2: TLabel;
+    lbl3: TLabel;
     lbQrcode: TLabel;
+    lbQrcodeRemembered: TLabel;
     procedure btnStartClick(Sender: TObject);
+    procedure ButtonOpenAsUrlClick(Sender: TObject);
+    procedure ButtonCopyRecognizedClick(Sender: TObject);
   private
     { Private declarations }
     procedure drawContour(img: PCvUMat_t; corners: PCvMat_t);
@@ -133,6 +139,7 @@ try
      if length(qrcode)>0 then
      begin
         lbQrcode.Caption:=qrcode;
+        lbQrcodeRemembered.Caption:=qrcode;
 
         // TODO: This drawing crashes with
         //   OpenCV Error: pCvMatGetFloat: Column index is < 0, or > Mat height-1
@@ -143,9 +150,11 @@ try
         //Assert((nc=4) and (ty=CV_32FC2), 'Returned corners Mat must be of type CV_32FC2 with 4 columns');
         //drawContour(uframe, corners);
         //pCvMatDelete(corners);
-     end
-     else
+     end else
+     begin
          lbQrcode.Caption:='Nothing';
+         // and leave lbQrcodeRemembered unmodified
+     end;
 
      pCvimshowV2(@winame, uframe );
 
@@ -167,6 +176,18 @@ finally
   pCvUMatDelete(ustrqrcode);
 end;
 
+end;
+
+procedure TForm6.ButtonOpenAsUrlClick(Sender: TObject);
+begin
+  if lbQrcodeRemembered.Caption <> '' then
+    OpenURL(lbQrcodeRemembered.Caption);
+end;
+
+procedure TForm6.ButtonCopyRecognizedClick(Sender: TObject);
+begin
+  if lbQrcodeRemembered.Caption <> '' then
+    Clipboard.AsText := lbQrcodeRemembered.Caption;
 end;
 
 
