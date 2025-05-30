@@ -84,7 +84,7 @@ begin
   done:=1;
   n:=0;
   erodeAnchor:=CvPoint_(-1, -1);
-  borderValue:=pCvMorphologyDefaultBordeValue();
+  borderValue:=pCvMorphologyDefaultBorderValue();
   for i:=1 to 500 do
   begin
       pCverode(imgInput, eroded, element, erodeAnchor, 1);
